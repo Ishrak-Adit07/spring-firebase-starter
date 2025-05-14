@@ -14,9 +14,6 @@ public class DemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		System.out.println("Hello World");
-		System.out.println("Testing git ignore");
-		System.out.println("Testing git ignore for next push");
-
 	}
 
 }
