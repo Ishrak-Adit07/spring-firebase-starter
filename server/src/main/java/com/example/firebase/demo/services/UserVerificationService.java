@@ -22,7 +22,7 @@ public class UserVerificationService {
     @Value("${verification.email.timeout}")
     private int optExpiration;
 
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
 //    private final UserVerificationRepository userVerRepo;
 

@@ -3,6 +3,7 @@ package com.example.firebase.demo.controllers;
 import com.example.firebase.demo.dtos.OtpRequest;
 import com.example.firebase.demo.dtos.OtpVerificationRequest;
 import com.example.firebase.demo.services.AuthService;
+import com.example.firebase.demo.services.UserVerificationService;
 import com.example.firebase.demo.utils.SecurityUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserVerificationService userVerificationService;
 
     @GetMapping("/test")
     public ResponseEntity<String> test() {
@@ -25,7 +27,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody @Valid OtpRequest request) {
-        authService.sendOtp(request.getEmail());
+        userVerificationService.sendVerificationEmail(request.getEmail(), "This is your otp");
         return ResponseEntity.ok("OTP sent to " + request.getEmail());
     }
 
