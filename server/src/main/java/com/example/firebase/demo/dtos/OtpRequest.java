@@ -8,4 +8,3 @@ import lombok.Getter;
 public class OtpRequest {
     private String email;
 }
-
