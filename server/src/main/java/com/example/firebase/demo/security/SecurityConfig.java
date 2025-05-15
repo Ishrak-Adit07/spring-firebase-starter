@@ -1,4 +1,4 @@
-package com.example.firebase.demo.configs;
+package com.example.firebase.demo.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
