@@ -2,9 +2,8 @@ package com.example.firebase.demo.controllers;
 
 import com.example.firebase.demo.dtos.OtpRequest;
 import com.example.firebase.demo.dtos.OtpVerificationRequest;
-import com.example.firebase.demo.services.AuthService;
+import com.example.firebase.demo.services.abs.AuthService;
 import com.example.firebase.demo.services.UserVerificationService;
-import com.example.firebase.demo.utils.SecurityUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,6 @@
-package com.example.firebase.demo.services;
+package com.example.firebase.demo.services.impls;
 
+import com.example.firebase.demo.services.abs.AuthService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
@@ -15,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService {
+public class AuthServiceImpl implements AuthService {
 
     private final JavaMailSender mailSender;
     private final Random random = new Random();
@@ -26,6 +27,7 @@ public class AuthService {
 
     private final Map<String, OtpEntry> otpStore = new ConcurrentHashMap<>();
 
+    @Override
     public void sendOtp(String email) {
         String otp = String.format("%06d", random.nextInt(999999));
         long expiresAt = System.currentTimeMillis() + otpExpirationMillis;
@@ -34,6 +36,7 @@ public class AuthService {
         sendEmail(email, otp);
     }
 
+    @Override
     public String verifyOtp(String email, String otp) {
         OtpEntry entry = otpStore.get(email);
 
