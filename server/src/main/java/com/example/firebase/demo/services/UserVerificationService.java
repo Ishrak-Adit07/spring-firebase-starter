@@ -1,14 +1,9 @@
 package com.example.firebase.demo.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.firebase.demo.services.abs.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +17,8 @@ public class UserVerificationService {
     @Value("${verification.email.timeout}")
     private int optExpiration;
 
-//    private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
+//    private final PasswordEncoder passwordEncoder;
 //    private final UserVerificationRepository userVerRepo;
 
 //    public void cacheDetails(RegistrationRequest request, String otp) throws JsonProcessingException {
