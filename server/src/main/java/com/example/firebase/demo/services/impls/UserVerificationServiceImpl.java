@@ -21,7 +21,7 @@ public class UserVerificationServiceImpl implements UserVerificationService {
     private final EmailService emailService;
 //    private final PasswordEncoder passwordEncoder;
 //    private final UserVerificationRepository userVerRepo;
-
+//
 //    public void cacheDetails(RegistrationRequest request, String otp) throws JsonProcessingException {
 //        UnverifiedUser unverifiedUser = new UnverifiedUser(
 //                new User(request.email(),
