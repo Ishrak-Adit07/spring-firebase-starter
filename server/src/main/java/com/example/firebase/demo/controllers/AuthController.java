@@ -32,20 +32,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Void> register(@Valid @RequestBody RegistrationRequest req){
-        if(userRepository.existsByEmail(req.email())){
-            return ResponseEntity.badRequest().build();
-        }
-
-        String otp = CodeGenerator.generateOtp();
-        try {
-//            userVerificationService.cacheDetails(req, otp);
-            userVerificationService.sendVerificationEmail(req.email(), otp);
-        }
-        catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error occurred while caching user details");
-        }
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<Void> register(@Valid @RequestBody RegistrationRequest registrationRequest){
+        userService.registerUser(registrationRequest);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/verify")
