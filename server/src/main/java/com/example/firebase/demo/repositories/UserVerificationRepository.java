@@ -1,5 +1,6 @@
 package com.example.firebase.demo.repositories;
 
+import com.example.firebase.demo.dtos.requests.UnverifiedUser;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
