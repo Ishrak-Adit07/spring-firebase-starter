@@ -1,5 +1,6 @@
 package com.example.firebase.demo.services.abs;
 
+import com.example.firebase.demo.dtos.requests.RegistrationRequest;
 import com.example.firebase.demo.entities.User;
 
 public interface UserService {
@@ -7,4 +8,6 @@ public interface UserService {
     User saveUser(User user);
     User getUserById(Long userId);
     void updateUserInfo(Long userId, String email, String phoneNumber);
+    void registerUser(RegistrationRequest registrationRequest);
+
 }

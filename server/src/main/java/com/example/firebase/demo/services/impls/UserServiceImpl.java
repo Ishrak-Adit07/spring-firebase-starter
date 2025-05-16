@@ -1,5 +1,6 @@
 package com.example.firebase.demo.services.impls;
 
+import com.example.firebase.demo.dtos.requests.RegistrationRequest;
 import com.example.firebase.demo.entities.User;
 import com.example.firebase.demo.repositories.UserRepository;
 import com.example.firebase.demo.repositories.UserVerificationRepository;
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
         userRepository.save(user);
+    }
+
+    @Override
+    public void registerUser(RegistrationRequest registrationRequest) {
+        userRepository.save(new User(registrationRequest.email(), registrationRequest.fullName(), registrationRequest.password(), registrationRequest.phoneNumber()));
     }
 }
