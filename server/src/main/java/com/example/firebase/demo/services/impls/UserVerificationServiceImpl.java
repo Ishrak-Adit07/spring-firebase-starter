@@ -1,13 +1,14 @@
-package com.example.firebase.demo.services;
+package com.example.firebase.demo.services.impls;
 
 import com.example.firebase.demo.services.abs.EmailService;
+import com.example.firebase.demo.services.abs.UserVerificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserVerificationService {
+public class UserVerificationServiceImpl implements UserVerificationService {
     @Value("${verification.email.message}")
     private String verificationEmailMessage;
 
@@ -33,6 +34,7 @@ public class UserVerificationService {
 //        userVerRepo.putUserVerificationInfo(request.email(), unverifiedUser);
 //    }
 
+    @Override
     public void sendVerificationEmail(String email, String otp) {
         emailService.sendSimpleEmail(email, verificationEmailSubject,
                 String.format(verificationEmailMessage, otp, (optExpiration / 60)));
