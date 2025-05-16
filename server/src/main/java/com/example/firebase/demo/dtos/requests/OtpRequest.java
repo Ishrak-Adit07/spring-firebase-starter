@@ -1,4 +1,4 @@
-package com.example.firebase.demo.dtos;
+package com.example.firebase.demo.dtos.requests;
 
 import lombok.Data;
 import lombok.Getter;
