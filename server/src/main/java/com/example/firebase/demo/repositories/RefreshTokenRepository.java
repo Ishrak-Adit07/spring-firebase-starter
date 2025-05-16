@@ -1,5 +1,6 @@
 package com.example.firebase.demo.repositories;
 
+import com.example.firebase.demo.dtos.responses.RefreshToken;
 import jakarta.annotation.PostConstruct;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 @ConditionalOnProperty(value = "spring.cache.type", havingValue = "none")
-public class RefreshTokenBaseRepository {
+public class RefreshTokenRepository {
     private Map<String, RefreshTokenWrapper> tokenMap;
     private Map<Long, String> userTokenMap;
 
