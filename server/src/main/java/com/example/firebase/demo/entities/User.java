@@ -31,10 +31,6 @@ public class User {
 
     private String phoneNumber;
 
-    public User(Long id){
-        this.id = id;
-    }
-
     public User(String email, String fullName, String password, String phoneNumber) {
         this.email = email;
         this.fullName = fullName;

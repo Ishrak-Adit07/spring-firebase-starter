@@ -4,6 +4,7 @@ import com.example.firebase.demo.dtos.OtpRequest;
 import com.example.firebase.demo.dtos.OtpVerificationRequest;
 import com.example.firebase.demo.services.abs.AuthService;
 import com.example.firebase.demo.services.abs.UserVerificationService;
+import com.example.firebase.demo.utils.CodeGenerator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody @Valid OtpRequest request) {
-        userVerificationService.sendVerificationEmail(request.getEmail(), "This is your otp");
+        String otp = CodeGenerator.generateOtp();
+        userVerificationService.sendVerificationEmail(request.getEmail(), otp);
         return ResponseEntity.ok("OTP sent to " + request.getEmail());
     }
 
